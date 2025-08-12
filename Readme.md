@@ -43,4 +43,3 @@ The 508 voting districts composing Italy in 1913 and their results.
 In the original map districts were clustered by "provincia", see the id.csv file.
 
 ## Usage
-
