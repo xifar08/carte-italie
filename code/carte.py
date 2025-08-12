@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 grid=pd.read_csv("../grid.csv",header=None)
+id=pd.read_csv('../id.csv',dtype='string',usecols=[0,3])
 
 nbrows,nbcols=grid.shape
 fig, axs = plt.subplots(nrows=nbrows,ncols=nbcols, figsize=(12,6))
@@ -30,6 +31,8 @@ for row in range(nbrows):
             axs[row, col].set_xticks([])
             axs[row, col].set_yticks([])
             axs[row, col].annotate(grid[row,col], xy=(0.5, 0.1), xycoords='axes fraction')
-            
+            collegi=pd.DataFrame(id[id['id']==grid[row,col]])
+            if collegi['partito politico '].item()=="monarchici":
+                axs[row,col].set_facecolor('orange')
 
 plt.show()
